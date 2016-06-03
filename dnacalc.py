@@ -2,7 +2,7 @@
 
 #Too hot! Call thepolice and the fireman.
 
-DNAseq='ATGAAC'
+DNAseq = 'ATGAAC'
 
 print( 'Sequence ' + DNAseq )
 

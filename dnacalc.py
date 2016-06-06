@@ -2,7 +2,10 @@
 
 #Too hot! Call thepolice and the fireman.
 
-DNAseq = 'ATGAAC'
+#DNAseq = raw_input( "Enter a DNA sequence:" )
+#DNAseq = 'ATTGCGTAGCTAAGCTAGCAGACTCCGGAAA'
+DNAseq = 'ACTGATTGGCAAA'
+DNAseq = DNAseq.upper()
 
 print( 'Sequence ' + DNAseq )
 
@@ -15,7 +18,19 @@ NumberT = DNAseq.count('T')
 NumberG = DNAseq.count('G')
 NumberC = DNAseq.count('C')
 
-print('A: ' + str( NumberA / Seqlength ))
-print('T: ' + str( NumberT / Seqlength ))
-print('C: ' + str( NumberC / Seqlength ))
-print('G: ' + str( NumberG / Seqlength ))
+print('A: {:.2f}'.format( NumberA / Seqlength ))
+print('T: {:.2f}'.format( NumberT / Seqlength ))
+print('C: {:.2f}'.format( NumberC / Seqlength ))
+print('G: {:.2f}'.format( NumberG / Seqlength ))
+
+TotalStrong = NumberG + NumberC
+TotalWeak = NumberA + NumberT
+
+if Seqlength <= 14:
+	MeltTemp = ( 4 * TotalStrong ) + (2 * TotalWeak )
+else:
+	MeltTemp = 64.9 + 41 * (TotalStrong - 16.4) / Seqlength
+	
+print( 'Melting temp: {}'.format(MeltTemp) )
+
+print ( 'Done.' )
